@@ -1,0 +1,72 @@
+__author__ = 'ryan.ohoro'
+
+from oftgplugin import OFTGAPIPlugin
+from windump import *
+
+class PacketCapture(OFTGAPIPlugin):
+
+    INFO = {
+        'Title': 'Packet Capture Monitor',
+        'Usage': '''\
+        ''',
+        'Author': 'Ryan O\'Horo'
+    }
+
+    PROPERTIES = {'interface':
+                  {'Label': 'Capture Interface',
+                   'Default': '',
+                   'Sample': '',
+                   'Type': 'list',
+                   'Function': 'interfaces',
+                   'Value': None}
+    }
+
+    # This value is the maximum practical payload size for the given protocol.
+    # It's used to limit the chunk size of large payloads
+    MAXDATASIZE = 500000
+
+    def __init__(self, *args, **kwargs):
+        super(OFTGAPIPlugin, self ).__init__()
+        #self.PROPERTIES['interface']['List'] = self.interfaces()
+
+    def interfaces(self):
+        alldevs = POINTER(pcap_if_t)()
+        errbuf = create_string_buffer(PCAP_ERRBUF_SIZE)
+
+        if (pcap_findalldevs(byref(alldevs), errbuf) == -1):
+            print (' * Error in pcap_findalldevs: %s\n' % errbuf.value)
+            return None
+
+        i = 0
+        devicelist = None
+        devices = []
+
+        try:
+            devicelist = alldevs.contents
+        except:
+            print (' * Error in pcap_findalldevs: %s' % errbuf.value)
+            print (' * Maybe you need admin privilege?\n')
+            return None
+
+        while devicelist:
+            i = i + 1
+            if (devicelist.description):
+                devices.append([devicelist.name, devicelist.description])
+            else:
+                devices.append([devicelist.name, devicelist.name])
+            if devicelist.next:
+                devicelist = devicelist.next.contents
+            else:
+                devicelist = False
+
+        return devices
+
+    def emitter(self):
+
+        pass
+
+    def collector(self, undefined):
+
+        pass
+
+        #return [dropbox_longpoll(), 'path', apifilter]
