@@ -1,0 +1,15 @@
+2017-02-07 19:10:59,068 client          INFO     Client|udp.oftg|10.0.0.237 Executing OFTGUDP
+2017-02-07 19:10:59,073 client          DEBUG    Client|udp.oftg|10.0.0.237 UDPRaw Port 22
+2017-02-07 19:10:59,076 client          DEBUG    Client|udp.oftg|10.0.0.237 UDPRaw Port 22
+2017-02-07 19:10:59,076 client          DEBUG    Client|udp.oftg|10.0.0.237 UDPRaw Port 22
+2017-02-07 19:10:59,076 client          INFO     Client|udp.oftg|10.0.0.237 Finished OFTGUDP
+2017-02-07 19:10:59,076 client          INFO     Client|udp.oftg|10.0.0.237 Executing file
+2017-02-07 19:10:59,076 client          ERROR    Client|udp.oftg|10.0.0.237 Property error in file: u'test.txt'
+2017-02-07 19:10:59,076 client          DEBUG    Client|udp.oftg|10.0.0.237 UDPRaw Port 22
+2017-02-07 19:10:59,077 client          ERROR    Client|udp.oftg|10.0.0.237 Property error in file: u'test.txt'
+2017-02-07 19:10:59,077 client          DEBUG    Client|udp.oftg|10.0.0.237 UDPRaw Port 22
+2017-02-07 19:10:59,077 client          ERROR    Client|udp.oftg|10.0.0.237 Property error in file: u'test.txt'
+2017-02-07 19:10:59,077 client          DEBUG    Client|udp.oftg|10.0.0.237 UDPRaw Port 22
+2017-02-07 19:10:59,077 client          INFO     Client|udp.oftg|10.0.0.237 Finished file
+ Port 22
+2017-02-07 19:10:59,077 client          INFO     Client|udp.oftg|10.0.0.237 Finished file
