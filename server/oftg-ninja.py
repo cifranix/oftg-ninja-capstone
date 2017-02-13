@@ -577,279 +577,280 @@ def server_start():
 
     return redirect('/dashboard', code=302)
 
+# removing the cleint functionality from server Commented out from line number 582 - 784, 795 - 853, 871-873.
 
-@app.route('/client')
-@auth_required
-def client():
-    return render_template('client.html', cases=caselibrary.cases)
-
-
-@app.route('/cases/edit', methods=['GET', 'POST'])
-@auth_required
-def cases_edit():
-
-    global caselibrary
-    if 'casename'in request.form:
-        casename = request.form['casename']
-    else:
-        if request.args.get('casename'):
-            casename = request.args.get('casename')
-        else:
-            global caselibrary
-            return render_template('cases.html?error=Case name required.', cases=caselibrary.cases)
-    #TODO: make sure all variables are properly saved to the caselibrary object. Also, let's just update the casefile object rather than dealing with this tempfile. We can just save caselibrary['casename'] at the end rather than keeping both.
-    if 'edit' in request.form:
-        tempcase = {}
-        files = {}
-        tempcase['payloads'] = {}
-        tempcase['plugins'] = {}
-        tempcase['configuration'] = {}
-        for key in request.form:
-            if "|" in key:
-                k,v = key.split('|', 1)
-                if k == 'configuration':
-                    if not 'configuration' in caselibrary.cases[casename]:
-                        caselibrary.cases[casename]['configuration'] = {}
-                    if not v in caselibrary.cases[casename]['configuration']:
-                        caselibrary.cases[casename]['configuration'][v] = {}
-                    caselibrary.cases[casename]['configuration'][v] = request.form[key]
-                else:
-                    if plugin not in tempcase['plugins']:
-                        tempcase['plugins'][plugin] = {}
-                    tempcase['plugins'][plugin][property] = request.form[key]
-
-        #I think this is how IE will upload the files.
-        if 'file' in request.files:
-            file = request.files['file']
-            if file:
-                for upload in request.files.getlist('file'):
-                    filename = safefile('temp', upload.filename)
-                    tempcase['payloads'][upload.filename] = {}
-                    payload = upload.read()
-                    from hashlib import sha256
-                    s = sha256()
-                    s.update(payload)
-                    tempcase['payloads'][upload.filename]['data'] = base64.b64encode(payload)
-                    tempcase['payloads'][upload.filename]['hash'] = s.hexdigest()[:8]
-
-        #this is for chrome
-        if 'configuration|payloads' in request.files:
-            file = request.files['configuration|payloads']
-            if file:
-                for upload in request.files.getlist('configuration|payloads'):
-                    filename = safefile('temp', upload.filename)
-                    tempcase['payloads'][upload.filename] = {}
-                    payload = upload.read()
-                    from hashlib import sha256
-                    s = sha256()
-                    s.update(payload)
-                    tempcase['payloads'][upload.filename]['data'] = base64.b64encode(payload)
-                    tempcase['payloads'][upload.filename]['hash'] = s.hexdigest()[:8]
-        ############3#test, delete this:
-        #payload = 'test text hardcoded payload'
-        #from hashlib import sha256
-        #s = sha256()
-        #s.update(payload)
-        #tempcase['payloads']['test.txt'] = {}
-        #tempcase['payloads']['test.txt']['data'] = base64.b64encode(payload)
-        #tempcase['payloads']['test.txt']['hash'] = s.hexdigest()[:8]
-        ##############################
-        if 'configuration' in tempcase:
-            if 'enable' in tempcase['configuration']:
-                del tempcase['configuration']['enable']
-        for plugin in tempcase['plugins'].keys():
-            if 'enable' in tempcase['plugins'][plugin]:
-                if tempcase['plugins'][plugin]['enable'] == 'Disabled':
-                    print plugin, 'Disabled, removing'
-                    del tempcase['plugins'][plugin]
-                else:
-                    print plugin, 'Enabled, cleaning'
-                    del tempcase['plugins'][plugin]['enable']
-        print 'tempcase 2: '+str(tempcase)
-        f = open(safefile('cases', casename), 'w')
-        f.write(json.dumps(tempcase))
-        f.close()
-        caselibrary.cases[casename] = tempcase
-        return redirect('/cases?success=%s' % 'Updated case file.', code=302)
-
-    case = None
-    if casename in caselibrary.cases:
-        case = caselibrary.cases[casename]
-
-    parameters = {}
-
-    for plugin in OFTGAPIPlugin.__subclasses__():
-        instance = plugin()
-        parameters[plugin.__name__] = {}
-        parameters[plugin.__name__]['ENABLED'] = False
-        parameters[plugin.__name__]['INFO'] = instance.INFO
-        parameters[plugin.__name__]['PROPERTIES'] = instance.__properties__()
-
-    for plugin in OFTGPacketPlugin.__subclasses__():
-        instance = plugin()
-        parameters[plugin.__name__] = {}
-        parameters[plugin.__name__]['ENABLED'] = False
-        parameters[plugin.__name__]['INFO'] = instance.INFO
-        parameters[plugin.__name__]['PROPERTIES'] = instance.__properties__()
-
-    parameters['configuration'] = {
-        'INFO': {
-            'Title': 'Configuration', 'Usage': ''},
-        'PROPERTIES': {
-            'encrypt': {
-                'Label': 'Encrypt (AES)',
-                'Default': False,
-                'Type': 'boolean',
-                'Value': None},
-            'encryptphrase': {
-                'Label': 'Encryption Passphrase',
-                'Default': None,
-                'Type': 'string',
-                'Sample': '0ftg-N1nj@G3ts0ut!',
-                'Value': None},
-            'compress': {
-                'Label': 'Compress (GZip)',
-                'Default': False,
-                'Type': 'boolean',
-                'Value': None},
-            'payloads': {
-                'Label': 'Payload Files',
-                'Default': None,
-                'Type': 'files',
-                'Value': None}}}
-
-    if case:
-        if 'payloads' in case:
-            parameters['configuration']['payloads'] = {}
-            for payload in case['payloads']:
-                parameters['configuration']['payloads'][payload] = ''
-
-        if 'plugins' in case:
-            for pluginname in parameters:
-                if pluginname in case['plugins']:
-                    parameters[pluginname]['ENABLED'] = True
-                    for prop in case['plugins'][pluginname]:
-                        if 'PROPERTIES' in parameters[pluginname]:
-                            parameters[pluginname]['PROPERTIES'][prop]['Value'] = case['plugins'][pluginname][prop]
-    #        for payload in case['payloads']:
-    #           parameters['configuration']['payloads'][payload] = ''
-
-        caselibrary.update()
-
-    return render_template('casesedit.html', casename=casename, case=case, parameters=parameters)
-
-@app.route('/cases/delete/<casefile>')
-@auth_required
-def cases_delete(casefile):
-    try:
-        os.remove(safefile('cases', casefile))
-        return redirect('/cases?success=%s' % 'Deleted case file.', code=302)
-    except Exception as e:
-        return redirect('/cases?error=%s %s' % ('Failed to delete case file.', e.message), code=302)
-
-    global caselibrary
-
-    return render_template('cases.html', cases=caselibrary.cases)
-
-@app.route('/cases/download/<casefile>')
-@auth_required
-def cases_download(casefile):
-    try:
-        f = open(safefile('cases', casefile))
-        response = make_response(f.read())
-        response.mimetype = 'application/json';
-        response.headers["Content-Disposition"] = 'attachment; %s' % casefile
-        return response
-    except Exception as e:
-        return redirect('/cases?error=%s %s' % ('Failed to download case file.', e.message), code=302)
-
-@app.route('/cases/upload', methods=['GET', 'POST'])
-@auth_required
-def cases_upload():
-    try:
-        #TODO: figure out how to properly extract the file. This doesn't work on Chrome. Also, update the caselibrary object rather than simply update the config file which is not read.
-        if 'file' in request.files:
-            file = request.files['file']
-            if file:
-                for upload in request.files.getlist('file'):
-                    upload.save(safefile('cases', upload.filename))
-        return redirect('/cases?success=%s' % 'Uploaded case file.', code=302)
-    except Exception as e:
-        return redirect('/cases?error=%s %s' % ('Failed to upload case file.', e.message), code=302)
+# @app.route('/client')
+# @auth_required
+# def client():
+#     return render_template('client.html', cases=caselibrary.cases)
 
 
-@app.route('/cases')
-@auth_required
-def cases():
-    global caselibrary
+# @app.route('/cases/edit', methods=['GET', 'POST'])
+# @auth_required
+# def cases_edit():
 
-    caselibrary = CaseLibrary('cases')
+#     global caselibrary
+#     if 'casename'in request.form:
+#         casename = request.form['casename']
+#     else:
+#         if request.args.get('casename'):
+#             casename = request.args.get('casename')
+#         else:
+#             global caselibrary
+#             return render_template('cases.html?error=Case name required.', cases=caselibrary.cases)
+#     #TODO: make sure all variables are properly saved to the caselibrary object. Also, let's just update the casefile object rather than dealing with this tempfile. We can just save caselibrary['casename'] at the end rather than keeping both.
+#     if 'edit' in request.form:
+#         tempcase = {}
+#         files = {}
+#         tempcase['payloads'] = {}
+#         tempcase['plugins'] = {}
+#         tempcase['configuration'] = {}
+#         for key in request.form:
+#             if "|" in key:
+#                 k,v = key.split('|', 1)
+#                 if k == 'configuration':
+#                     if not 'configuration' in caselibrary.cases[casename]:
+#                         caselibrary.cases[casename]['configuration'] = {}
+#                     if not v in caselibrary.cases[casename]['configuration']:
+#                         caselibrary.cases[casename]['configuration'][v] = {}
+#                     caselibrary.cases[casename]['configuration'][v] = request.form[key]
+#                 else:
+#                     if plugin not in tempcase['plugins']:
+#                         tempcase['plugins'][plugin] = {}
+#                     tempcase['plugins'][plugin][property] = request.form[key]
 
-    return render_template('cases.html', cases=caselibrary.cases)
+#         #I think this is how IE will upload the files.
+#         if 'file' in request.files:
+#             file = request.files['file']
+#             if file:
+#                 for upload in request.files.getlist('file'):
+#                     filename = safefile('temp', upload.filename)
+#                     tempcase['payloads'][upload.filename] = {}
+#                     payload = upload.read()
+#                     from hashlib import sha256
+#                     s = sha256()
+#                     s.update(payload)
+#                     tempcase['payloads'][upload.filename]['data'] = base64.b64encode(payload)
+#                     tempcase['payloads'][upload.filename]['hash'] = s.hexdigest()[:8]
+
+#         #this is for chrome
+#         if 'configuration|payloads' in request.files:
+#             file = request.files['configuration|payloads']
+#             if file:
+#                 for upload in request.files.getlist('configuration|payloads'):
+#                     filename = safefile('temp', upload.filename)
+#                     tempcase['payloads'][upload.filename] = {}
+#                     payload = upload.read()
+#                     from hashlib import sha256
+#                     s = sha256()
+#                     s.update(payload)
+#                     tempcase['payloads'][upload.filename]['data'] = base64.b64encode(payload)
+#                     tempcase['payloads'][upload.filename]['hash'] = s.hexdigest()[:8]
+#         ############3#test, delete this:
+#         #payload = 'test text hardcoded payload'
+#         #from hashlib import sha256
+#         #s = sha256()
+#         #s.update(payload)
+#         #tempcase['payloads']['test.txt'] = {}
+#         #tempcase['payloads']['test.txt']['data'] = base64.b64encode(payload)
+#         #tempcase['payloads']['test.txt']['hash'] = s.hexdigest()[:8]
+#         ##############################
+#         if 'configuration' in tempcase:
+#             if 'enable' in tempcase['configuration']:
+#                 del tempcase['configuration']['enable']
+#         for plugin in tempcase['plugins'].keys():
+#             if 'enable' in tempcase['plugins'][plugin]:
+#                 if tempcase['plugins'][plugin]['enable'] == 'Disabled':
+#                     print plugin, 'Disabled, removing'
+#                     del tempcase['plugins'][plugin]
+#                 else:
+#                     print plugin, 'Enabled, cleaning'
+#                     del tempcase['plugins'][plugin]['enable']
+#         print 'tempcase 2: '+str(tempcase)
+#         f = open(safefile('cases', casename), 'w')
+#         f.write(json.dumps(tempcase))
+#         f.close()
+#         caselibrary.cases[casename] = tempcase
+#         return redirect('/cases?success=%s' % 'Updated case file.', code=302)
+
+#     case = None
+#     if casename in caselibrary.cases:
+#         case = caselibrary.cases[casename]
+
+#     parameters = {}
+
+#     for plugin in OFTGAPIPlugin.__subclasses__():
+#         instance = plugin()
+#         parameters[plugin.__name__] = {}
+#         parameters[plugin.__name__]['ENABLED'] = False
+#         parameters[plugin.__name__]['INFO'] = instance.INFO
+#         parameters[plugin.__name__]['PROPERTIES'] = instance.__properties__()
+
+#     for plugin in OFTGPacketPlugin.__subclasses__():
+#         instance = plugin()
+#         parameters[plugin.__name__] = {}
+#         parameters[plugin.__name__]['ENABLED'] = False
+#         parameters[plugin.__name__]['INFO'] = instance.INFO
+#         parameters[plugin.__name__]['PROPERTIES'] = instance.__properties__()
+
+#     parameters['configuration'] = {
+#         'INFO': {
+#             'Title': 'Configuration', 'Usage': ''},
+#         'PROPERTIES': {
+#             'encrypt': {
+#                 'Label': 'Encrypt (AES)',
+#                 'Default': False,
+#                 'Type': 'boolean',
+#                 'Value': None},
+#             'encryptphrase': {
+#                 'Label': 'Encryption Passphrase',
+#                 'Default': None,
+#                 'Type': 'string',
+#                 'Sample': '0ftg-N1nj@G3ts0ut!',
+#                 'Value': None},
+#             'compress': {
+#                 'Label': 'Compress (GZip)',
+#                 'Default': False,
+#                 'Type': 'boolean',
+#                 'Value': None},
+#             'payloads': {
+#                 'Label': 'Payload Files',
+#                 'Default': None,
+#                 'Type': 'files',
+#                 'Value': None}}}
+
+#     if case:
+#         if 'payloads' in case:
+#             parameters['configuration']['payloads'] = {}
+#             for payload in case['payloads']:
+#                 parameters['configuration']['payloads'][payload] = ''
+
+#         if 'plugins' in case:
+#             for pluginname in parameters:
+#                 if pluginname in case['plugins']:
+#                     parameters[pluginname]['ENABLED'] = True
+#                     for prop in case['plugins'][pluginname]:
+#                         if 'PROPERTIES' in parameters[pluginname]:
+#                             parameters[pluginname]['PROPERTIES'][prop]['Value'] = case['plugins'][pluginname][prop]
+#     #        for payload in case['payloads']:
+#     #           parameters['configuration']['payloads'][payload] = ''
+
+#         caselibrary.update()
+
+#     return render_template('casesedit.html', casename=casename, case=case, parameters=parameters)
+
+# @app.route('/cases/delete/<casefile>')
+# @auth_required
+# def cases_delete(casefile):
+#     try:
+#         os.remove(safefile('cases', casefile))
+#         return redirect('/cases?success=%s' % 'Deleted case file.', code=302)
+#     except Exception as e:
+#         return redirect('/cases?error=%s %s' % ('Failed to delete case file.', e.message), code=302)
+
+#     global caselibrary
+
+#     return render_template('cases.html', cases=caselibrary.cases)
+
+# @app.route('/cases/download/<casefile>')
+# @auth_required
+# def cases_download(casefile):
+#     try:
+#         f = open(safefile('cases', casefile))
+#         response = make_response(f.read())
+#         response.mimetype = 'application/json';
+#         response.headers["Content-Disposition"] = 'attachment; %s' % casefile
+#         return response
+#     except Exception as e:
+#         return redirect('/cases?error=%s %s' % ('Failed to download case file.', e.message), code=302)
+
+# @app.route('/cases/upload', methods=['GET', 'POST'])
+# @auth_required
+# def cases_upload():
+#     try:
+#         #TODO: figure out how to properly extract the file. This doesn't work on Chrome. Also, update the caselibrary object rather than simply update the config file which is not read.
+#         if 'file' in request.files:
+#             file = request.files['file']
+#             if file:
+#                 for upload in request.files.getlist('file'):
+#                     upload.save(safefile('cases', upload.filename))
+#         return redirect('/cases?success=%s' % 'Uploaded case file.', code=302)
+#     except Exception as e:
+#         return redirect('/cases?error=%s %s' % ('Failed to upload case file.', e.message), code=302)
+
+
+# @app.route('/cases')
+# @auth_required
+# def cases():
+#     global caselibrary
+
+#     caselibrary = CaseLibrary('cases')
+
+#     return render_template('cases.html', cases=caselibrary.cases)
 
 def sanefilename(filename):
     ok = (' ','.','_')
     return "".join(c for c in filename if c.isalnum() or c in ok).rstrip()
 
-@app.route('/cases/create', methods=['POST'])
-@auth_required
-def cases_create():
+# @app.route('/cases/create', methods=['POST'])
+# @auth_required
+# def cases_create():
 
-    filename = '%s.oftg' % sanefilename(request.form['casename'])
+#     filename = '%s.oftg' % sanefilename(request.form['casename'])
 
-    return redirect('/cases/edit?casename=%s' % filename, code=302)
-
-
-@app.route('/cases/update')
-@auth_required
-def cases_update():
-    global caselibrary
-
-    # Update the case library from disk
-    caselibrary = CaseLibrary('cases')
-
-    return render_template('cases.html', cases=caselibrary.cases)
+#     return redirect('/cases/edit?casename=%s' % filename, code=302)
 
 
-@app.route('/archive')
-@auth_required
-def archive():
-    archivefiles = [f for f in os.listdir(('archive')) if os.path.isfile(os.path.join(('archive'), f))]
-    archivefiles.sort(reverse=True)
+# @app.route('/cases/update')
+# @auth_required
+# def cases_update():
+#     global caselibrary
 
-    return render_template('archive.html', archivefiles=archivefiles)
+#     # Update the case library from disk
+#     caselibrary = CaseLibrary('cases')
 
-
-@app.route('/archive/<archivefile>')
-@auth_required
-def archive_file(archivefile):
-    with open(safefile('archive', archivefile)) as f:
-        content = f.read()
-
-    return content
-
-@app.route('/archive/delete/<archivefile>')
-@auth_required
-def archive_delete(archivefile):
-    try:
-        os.remove(safefile('archive', archivefile))
-        return redirect('/archive?success=%s' % 'Deleted archive file.', code=302)
-    except Exception as e:
-        return redirect('/archive?error=%s %s' % ('Failed to delete archive file.', e.message), code=302)
-
-    return render_template('archive.html', archivefiles=archivefiles)
+#     return render_template('cases.html', cases=caselibrary.cases)
 
 
-@app.route('/settings')
-@auth_required
-def settings():
-    return render_template('settings.html')
+# @app.route('/archive')
+# @auth_required
+# def archive():
+#     archivefiles = [f for f in os.listdir(('archive')) if os.path.isfile(os.path.join(('archive'), f))]
+#     archivefiles.sort(reverse=True)
+
+#     return render_template('archive.html', archivefiles=archivefiles)
 
 
-@app.route('/help')
-@auth_required
-def help():
-    return render_template('help.html')
+# @app.route('/archive/<archivefile>')
+# @auth_required
+# def archive_file(archivefile):
+#     with open(safefile('archive', archivefile)) as f:
+#         content = f.read()
+
+#     return content
+
+# @app.route('/archive/delete/<archivefile>')
+# @auth_required
+# def archive_delete(archivefile):
+#     try:
+#         os.remove(safefile('archive', archivefile))
+#         return redirect('/archive?success=%s' % 'Deleted archive file.', code=302)
+#     except Exception as e:
+#         return redirect('/archive?error=%s %s' % ('Failed to delete archive file.', e.message), code=302)
+
+#     return render_template('archive.html', archivefiles=archivefiles)
+
+
+# @app.route('/settings')
+# @auth_required
+# def settings():
+#     return render_template('settings.html')
+
+
+# @app.route('/help')
+# @auth_required
+# def help():
+#     return render_template('help.html')
 
 
 def tasks():
@@ -867,40 +868,40 @@ def tasks():
     return children
 
 
-@app.route('/client/start', methods=['GET', 'POST'])
-@auth_required
-def client_start():
-    global asyncemitterqueue
-    global plugins
-    global ns
+# @app.route('/client/start', methods=['GET', 'POST'])
+# @auth_required
+# def client_start():
+#     global asyncemitterqueue
+#     global plugins
+#     global ns
 
-    weberror = None
+#     weberror = None
 
-    # Validate parameters
-    if not request.form['case']:
-        return redirect('/client?error=%s' % 'You must select a valid case file.', code=302)
+#     # Validate parameters
+#     if not request.form['case']:
+#         return redirect('/client?error=%s' % 'You must select a valid case file.', code=302)
 
-    if not request.form['case'] in caselibrary.cases:
-        return redirect('/client?error=%s' % 'You must select a valid case file.', code=302)
+#     if not request.form['case'] in caselibrary.cases:
+#         return redirect('/client?error=%s' % 'You must select a valid case file.', code=302)
 
-    if not request.form['target']:
-        return redirect('/client?error=%s' % 'You must enter a host.', code=302)
+#     if not request.form['target']:
+#         return redirect('/client?error=%s' % 'You must enter a host.', code=302)
 
-    try:
-        case = request.form['case']
-        target = request.form['target']
-        clientclass = Client(plugins, caselibrary.cases[case], getlocaladdr(request.form['target']), target, QueueHandler, loggerqueue, None)
+#     try:
+#         case = request.form['case']
+#         target = request.form['target']
+#         clientclass = Client(plugins, caselibrary.cases[case], getlocaladdr(request.form['target']), target, QueueHandler, loggerqueue, None)
 
-        parent_pipe, child_pipe = Pipe()
+#         parent_pipe, child_pipe = Pipe()
 
-        clientprocess = Process(target=clientclass.run, name='Client|%s|%s' % (case, target),
-                               args=(None, None, (parent_pipe, child_pipe)))
-        clientprocess.start()
+#         clientprocess = Process(target=clientclass.run, name='Client|%s|%s' % (case, target),
+#                                args=(None, None, (parent_pipe, child_pipe)))
+#         clientprocess.start()
 
-    except Exception:
-        raise
+#     except Exception:
+#         raise
 
-    return redirect('/dashboard', code=302)
+#     return redirect('/dashboard', code=302)
 
 
 @app.route('/stop/<pid>')
@@ -916,6 +917,7 @@ def stop(pid):
 
     return redirect('/dashboard', code=302)
 
+# The code from 922 - 932 was already commented out and dead code.
 
 #@socketio.on('connect', namespace='/status')
 #def test_connect():
