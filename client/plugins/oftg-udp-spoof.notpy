@@ -1,0 +1,94 @@
+__author__ = 'ryan.ohoro'
+
+import socket
+from oftgplugin import *
+
+import re
+import random
+import binascii
+from impacket import ImpactDecoder, ImpactPacket, IP6
+
+
+class UDPSpoof(OFTGPacketPlugin):
+
+    INFO = {
+        'Title': 'UDP Spoof Payload',
+        'Usage': '',
+        'Author': 'Ryan O\'Horo'
+    }
+
+    PROPERTIES = {'portspec':
+                  {'Label': 'UDP Ports',
+                   'Default': '1-65535',
+                   'Sample': '23,25,137-139',
+                   'Type': 'string',
+                   'Value': None},
+                  'portrandomize':
+                  {'Label': 'Randomize Ports',
+                   'Default': True,
+                   'Type': 'boolean',
+                   'Value': None}
+    }
+
+    # This value is the maximum practical payload size for the given protocol.
+    # It's used to limit the chunk size of large payloads
+    MAXDATASIZE = 65507
+
+    def emitter(self):
+
+        try:
+            if self.PROPERTIES['portspec']['Value']:
+                ports = hyphen_range(self.PROPERTIES['portspec']['Value'])
+            else:
+                self.logger.error('Error in %s: No property portspec' % (__name__))
+                return None
+
+            if self.PROPERTIES['portrandomize']['Value'] == True:
+                random.shuffle(ports)
+
+            oftgpacket = OFTGPacket()
+
+            for port in ports:
+                self.logger.debug('UDPSpoof Port %i' % port)
+                for payload in oftgpacket.encoder(pluginname=self.__class__.__name__, payload=self.payload, payloadname=self.payloadname, datasize=self.MAXDATASIZE):
+                    try:
+                        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+                        s.sendto(payload, (self.target, port))
+                        s.close()
+                    except Exception:
+                        raise
+
+        except socket.error:
+            raise
+        except Exception:
+            raise
+
+        return True
+
+    def collector(self, buffer):
+
+        try:
+            decoder = ImpactDecoder.EthDecoder()
+            packet = decoder.decode(buffer)
+            if packet.get_ether_type() == ImpactPacket.IP.ethertype:
+                ip = packet.child()
+                if ip and ip.get_ip_p() == ImpactPacket.UDP.protocol:
+                    udppacket = ip.child()
+                    data = udppacket.get_data_as_string()
+                    oftgpacket = OFTGPacket()
+                    payload = oftgpacket.decoder(data)
+                    if payload:
+                        self.logger.debug('%s got a payload from %s' % (self.__class__.__name__, ip.get_ip_src()))
+                        #print '%s got a payload from %s' % (self.__class__.__name__, ip.get_ip_src())
+                        return {'Source Host': ip.get_ip_src(), 'Payload': payload, 'Protocol Subtype': 'Port', 'Subtype': str(udppacket.get_uh_dport())}
+                else:
+                    return
+
+        except Exception as e:
+            # If the decoding fails, it just wasn't meant to be.
+            pass
+
+        return
+
+
+

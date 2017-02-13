@@ -1,0 +1,13 @@
+create option for TCP in the GUI
+
+update twitter to actually post tweets
+
+Fix the other plugins - only udp works right now.
+
+fix caselibrary
+
+remove upload/download and parsing of case files?
+
+consolidate server to a simple listener, which doesn't require configuration
+
+fix remove file button
