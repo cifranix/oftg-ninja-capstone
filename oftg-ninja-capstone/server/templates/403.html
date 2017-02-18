@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+{% block title %}Forbidden{% endblock %}
+{% block body %}
+<div class="main">
+  <div class="main-inner">
+    <div class="container">
+
+        <div class="row">
+
+            <div class="span12">
+
+                <div class="error-container">
+                    <h1>403</h1>
+
+                    <h2>Whoa! Hold your horses.</h2>
+
+                    <div class="error-details">
+                        Sorry, an error has occurred! Why not try going back to the <a href="/">dashboard</a>.
+
+                    </div> <!-- /error-details -->
+
+                    <div class="error-actions">
+                        <a href="/" class="btn btn-large btn-primary">
+                            <i class="icon-chevron-left"></i>
+                            &nbsp;
+                            Back to Dashboard
+                        </a>
+
+
+
+                    </div> <!-- /error-actions -->
+
+                </div> <!-- /error-container -->
+
+            </div> <!-- /span12 -->
+
+        </div> <!-- /row -->
+
+    </div> <!-- /container -->
+  </div>
+  <!-- /main-inner -->
+</div>
+<!-- /main -->
+{% endblock %}
