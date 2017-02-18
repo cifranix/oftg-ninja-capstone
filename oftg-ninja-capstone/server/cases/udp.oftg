@@ -1,1 +1,0 @@
-{"configuration": {"encryptphrase": "", "encrypt": "False", "compress": "False"}, "payloads": {}, "plugins": {"OFTGUDP": {"portspec": "22", "portrandomize": "False"}}}
