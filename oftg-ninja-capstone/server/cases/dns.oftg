@@ -1,1 +1,0 @@
-{"configuration": {"encryptphrase": {}, "encrypt": {}, "compress": {}}, "payloads": {}, "plugins": {"OFTGDNS": {"resolvers": "", "domain": "example.com", "portspec": "53", "subdomain": "_domainkeys"}}}

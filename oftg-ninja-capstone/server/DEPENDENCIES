@@ -1,6 +1,0 @@
-Python 2.7 https://www.python.org/downloads/
-\Python27\Scripts>pip.exe install flask
-winpcap/libpcap http://www.winpcap.org/install/default.htm
-\Python27\Scripts>pip.exe install impacket
-socketIO-client
-\Python27\Scripts>pip.exe install websocket-client
