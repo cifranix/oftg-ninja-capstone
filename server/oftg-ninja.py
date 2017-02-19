@@ -489,7 +489,7 @@ def server():
         pass
 
     return render_template('server.html', cases=caselibrary.cases, interfaces=interfaces(),
-                           defaultinterface=defaultinterface)
+                           defaultinterface=defaultinterface, tasks=tasks())
 
 
 @app.route('/server/start', methods=['GET', 'POST'])
@@ -544,9 +544,11 @@ def server_start():
         logger.error('API Monitor Error: %s ' % e)
         raise
 
-    for task in multiprocessing.active_children():
-        if task.name.startswith('Packet Monitor'):
-            return redirect('/dashboard?error=%s' % 'A packet monitor process is already running.', code=302)
+
+    ######## commented out to be able to listen for multiple cases at the same time
+    # for task in multiprocessing.active_children():
+    #     if task.name.startswith('Packet Monitor'):
+    #         return redirect('/dashboard?error=%s' % 'A packet monitor process is already running.', code=302)
 
     # Start packet capture process and load filter plugins
     try:
@@ -566,7 +568,7 @@ def server_start():
         parent_pipe, child_pipe = multiprocessing.Pipe()
 
         multiprocessing.freeze_support()
-        packetmonitorprocess = Process(target=capturethread.run, name='Packet Monitor|%s|%s' % (casename, '%s (0.0.0.0)' % interfacename),
+        packetmonitorprocess = Process(target=capturethread.run, name='Packet Monitor|%s|%s' % (casename[0:-5], '%s (0.0.0.0)' % interfacename),
                                  args=(None, None, child_pipe))
         packetmonitorprocess.daemon = True
         packetmonitorprocess.start()
@@ -575,7 +577,7 @@ def server_start():
         logger.error('Packet Monitor Error: %s ' % e)
         raise
 
-    return redirect('/dashboard', code=302)
+    return redirect('/server', code=302)
 
 # removing the cleint functionality from server Commented out from line number 582 - 784, 795 - 853, 871-873.
 
@@ -915,7 +917,7 @@ def stop(pid):
             print ' ! Terminating process %s' % pid
             task.terminate()
 
-    return redirect('/dashboard', code=302)
+    return redirect('/server', code=302)
 
 # The code from 922 - 932 was already commented out and dead code.
 
