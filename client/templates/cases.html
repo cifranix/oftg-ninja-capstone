@@ -17,7 +17,7 @@
                     <div class="control-group">
                         <label class="control-label" for="case">Case:</label>
                         <div class="controls">
-                            <select class="span3" name="casename">{% if cases %}{% for case in cases %}<option value="{{ case }}">{{ case[0:-5] }}</option>{% endfor %}{% endif %}</select>
+                            <select class="span3" name="casename">{% if cases %}{% for case in cases %}<option value="{{ case }}">{{ case }}</option>{% endfor %}{% endif %}</select>
                         </div>
                     </div>
                         <br/>

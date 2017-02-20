@@ -5,7 +5,6 @@ __version__ = '0.4'
 # Outbound Filter Testing Gizmo - Ninja
 
 
-# jordan was here
 
 import os
 import sys
@@ -571,7 +570,7 @@ def server_start():
         parent_pipe, child_pipe = multiprocessing.Pipe()
 
         multiprocessing.freeze_support()
-        packetmonitorprocess = Process(target=capturethread.run, name='Packet Monitor|%s|%s' % (casename[0:-5], '%s (0.0.0.0)' % interfacename),
+        packetmonitorprocess = Process(target=capturethread.run, name='Packet Monitor|%s|%s' % (casename, '%s (0.0.0.0)' % interfacename),
                                  args=(None, None, child_pipe))
         packetmonitorprocess.daemon = True
         packetmonitorprocess.start()
