@@ -34,6 +34,7 @@ from flask import Response
 from flask import jsonify
 from flask import Markup
 from flask import make_response
+from flask import url_for
 from flask.ext.socketio import SocketIO
 from gevent import monkey
 
