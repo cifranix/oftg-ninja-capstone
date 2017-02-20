@@ -17,7 +17,7 @@
                     <div class="control-group">
                         <label class="control-label" for="case">Case:</label>
                         <div class="controls">
-                            <select class="span3" name="casename">{% if cases %}{% for case in cases %}<option value="{{ case }}">{{ case }}</option>{% endfor %}{% endif %}</select>
+                            <select class="span3" name="casename">{% if cases %}{% for case in cases %}<option value="{{ case }}">{{ case[0:-5] }}</option>{% endfor %}{% endif %}</select>
                         </div>
                     </div>
                         <br/>
@@ -31,13 +31,17 @@
           </div>
           <!-- /widget -->
         </div>
-          <div class="span6">
-                      <div class="widget">
+
+        <!-- commented out to get rid of Upload Case -->
+
+          <!-- <div class="span6"> -->
+
+          <!-- <div class="widget">
             <div class="widget-header"> <i class="icon-signal"></i>
               <h3> Upload Case </h3>
-            </div>
+            </div> -->
             <!-- /widget-header -->
-            <div class="widget-content">
+            <!-- <div class="widget-content">
                 <form class="form-horizontal" method="post" action="{{ url_for('cases_upload') }}">
                     <fieldset>
                     <div class="control-group">
@@ -52,16 +56,17 @@
                     </div>
                     </fieldset>
                 </form>
-            </div>
+            </div> -->
             <!-- /widget-content -->
-          </div>
-          <!-- /widget -->
-        </div>
+          <!-- </div>
+ -->          <!-- /widget -->
+        <!-- </div> -->
 
           <!-- /widget -->
-        </div>
-          </div>
-        <div class="row">
+        <!-- </div> -->
+        <!--   </div> -->
+
+        <!-- <div class="row"> -->
 
             <div class="span6">
                       <div class="widget">
