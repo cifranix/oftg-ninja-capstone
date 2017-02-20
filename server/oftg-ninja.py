@@ -5,6 +5,8 @@ __version__ = '0.4'
 # Outbound Filter Testing Gizmo - Ninja
 
 
+# jordan was here
+
 import os
 import sys
 import ConfigParser
