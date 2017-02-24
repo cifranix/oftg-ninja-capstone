@@ -479,103 +479,6 @@ def bucket_report():
     return rt
 
 
-#@app.route('/server')
-#@auth_required
-#def server():
-#    defaultinterface = None
-#     try:
-#         defaultinterface = config.get('Interface', 'server')
-#     except Exception:
-#         pass
-
-#     return render_template('server.html', cases=caselibrary.cases, interfaces=interfaces(),
-#                            defaultinterface=defaultinterface)
-
-# @app.route('/server/start', methods=['GET', 'POST'])
-# @auth_required
-# def server_start():
-#     global plugins
-#     global parent_pipe
-
-#     # Validate parameters
-#     if not request.form['case']:
-#         return redirect('/dashboard?error=%s' % 'You must select a valid case file.', code=302)
-
-#     if not request.form['case'] in caselibrary.cases:
-#         return redirect('/dashboard?error=%s' % 'You must select a valid case file.', code=302)
-
-#     if not request.form['interface']:
-#         return redirect('/dashboard?error=%s' % 'You must select a valid interface.', code=302)
-
-#     casename = request.form['case']
-#     case = caselibrary.cases[casename]
-#     # Start API Monitor plugins
-#     try:
-#         for api in OFTGAPIPlugin.__subclasses__():
-#             if 'plugins' in case:
-#                 if api.__name__ in case['plugins']:
-
-#                     # Assign plugin properties based on case configuration and default values
-#                     for prop in case['plugins'][api.__name__]:
-#                         try:
-#                             api.PROPERTIES[prop]['Value'] = case['plugins'][api.__name__][prop]
-#                         except Exception as e:
-#                             logger.error('Property error in %s: %s' % (api.__name__, e))
-#                             pass
-
-#                     for prop in api.PROPERTIES:
-#                         if not api.PROPERTIES[prop]['Value']:
-#                             api.PROPERTIES[prop]['Value'] = api.PROPERTIES[prop]['Default']
-#                     apiclass = ServerAPI(api, case, plugins, loggerqueue)
-
-#                     # Fetch the plugin's title, if available
-#                     try:
-#                         plugintitle = api.INFO['Title']
-#                     except Exception:
-#                         plugintitle = api.__name__
-
-#                     # Spawn API monitor process
-#                     apimonitor = Process(target=apiclass.run, name='%s API Monitor|%s|%s' % (plugintitle, casename,
-#                                                                                                 'API'))
-#                     apimonitor.daemon = True
-#                     apimonitor.start()
-#     except Exception as e:
-#         logger.error('API Monitor Error: %s ' % e)
-#         raise
-
-#     for task in multiprocessing.active_children():
-#         if task.name.startswith('Packet Monitor'):
-#             return redirect('/dashboard?error=%s' % 'A packet monitor process is already running.', code=302)
-
-#     # Start packet capture process and load filter plugins
-#     try:
-#         capturethread = Server(request.form['interface'], case, plugins, loggerqueue)
-
-#         interfacename = None
-
-#         for i in interfaces():
-#             if i[0] == request.form['interface']:
-#                 interfacename = i[1]
-#                 break
-
-#         if not interfacename:
-#             logger.error('Failed to open packet monitor interface')
-#             return redirect('/dashboard', code=302)
-
-#         parent_pipe, child_pipe = multiprocessing.Pipe()
-
-#         multiprocessing.freeze_support()
-#         packetmonitorprocess = Process(target=capturethread.run, name='Packet Monitor|%s|%s' % (casename, '%s (0.0.0.0)' % interfacename),
-#                                  args=(None, None, child_pipe))
-#         packetmonitorprocess.daemon = True
-#         packetmonitorprocess.start()
-
-#     except Exception as e:
-#         logger.error('Packet Monitor Error: %s ' % e)
-#         raise
-
-#     return redirect('/dashboard', code=302)
-
 
 @app.route('/client')
 @auth_required
@@ -809,34 +712,6 @@ def cases_update():
 
     return render_template('cases.html', cases=caselibrary.cases)
 
-
-#@app.route('/archive')
-#@auth_required
-#def archive():
-#    archivefiles = [f for f in os.listdir(('archive')) if os.path.isfile(os.path.join(('archive'), f))]
-#    archivefiles.sort(reverse=True)
-
-#    return render_template('archive.html', archivefiles=archivefiles)
-
-
-#@app.route('/archive/<archivefile>')
-#@auth_required
-#def archive_file(archivefile):
-#    with open(safefile('archive', archivefile)) as f:
-#        content = f.read()
-
-#    return content
-
-#@app.route('/archive/delete/<archivefile>')
-#@auth_required
-#def archive_delete(archivefile):
-#    try:
-#        os.remove(safefile('archive', archivefile))
-#        return redirect('/archive?success=%s' % 'Deleted archive file.', code=302)
-#    except Exception as e:
-#        return redirect('/archive?error=%s %s' % ('Failed to delete archive file.', e.message), code=302)
-
-#    return render_template('archive.html', archivefiles=archivefiles)
 
 
 @app.route('/settings')
