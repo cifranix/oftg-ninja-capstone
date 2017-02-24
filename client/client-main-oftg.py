@@ -43,10 +43,6 @@ import getpass
 import hashlib
 import binascii
 
-from classes.oftgserver import Server
-from classes.oftgserver import ServerAPI
-from classes.oftgserver import interfaces
-
 from classes.oftgclient import Client
 from classes.oftgplugin import OFTGPacketPlugin
 from classes.oftgplugin import OFTGAPIPlugin
