@@ -287,7 +287,7 @@ def database_init():
     except Exception as e:
         raise
 
-
+# May be for exporting the populated bucket to a pdf
 def create_pdf(pdf_data):
     ''' Create a PDF from XHTML content
     :param pdf_data: XHTML
@@ -424,7 +424,7 @@ def bucket_sorted():
                               'Subtype List': string2list(row['Subtype']), 'Complete': row['Payload Hash'] == row['Partial Hash']})
             except Exception as e:
                 raise
-
+    print(result)
     return result
 
 
