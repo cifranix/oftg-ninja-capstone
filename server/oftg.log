@@ -1,9 +1,517 @@
-2017-02-24 19:24:22,393 werkzeug        INFO     MainProcess  * Running on http://0.0.0.0:7331/
-2017-02-24 19:40:02,779 oftg            INFO     Packet Monitor|udp.oftg|Bluetooth adapter number 0 (0.0.0.0) Opening capture interface
-2017-02-24 19:40:02,779 oftg            INFO     Packet Monitor|udp.oftg|Bluetooth adapter number 0 (0.0.0.0) Opening capture interface
-2017-02-24 19:40:02,781 oftg            INFO     Packet Monitor|udp.oftg|Bluetooth adapter number 0 (0.0.0.0) Listening on bluetooth0
-2017-02-24 19:40:02,781 oftg            INFO     Packet Monitor|udp.oftg|Bluetooth adapter number 0 (0.0.0.0) Listening on bluetooth0
-2017-02-24 19:40:16,368 oftg            INFO     Packet Monitor|udp.oftg|USB bus number 1 (0.0.0.0) Opening capture interface
-2017-02-24 19:40:16,368 oftg            INFO     Packet Monitor|udp.oftg|USB bus number 1 (0.0.0.0) Opening capture interface
-2017-02-24 19:40:16,372 oftg            INFO     Packet Monitor|udp.oftg|USB bus number 1 (0.0.0.0) Listening on usbmon1
-2017-02-24 19:40:16,372 oftg            INFO     Packet Monitor|udp.oftg|USB bus number 1 (0.0.0.0) Listening on usbmon1
+2017-03-05 16:52:26,264 werkzeug        INFO     MainProcess  * Running on http://0.0.0.0:7331/
+2017-03-05 16:52:38,700 oftg            INFO     Packet Monitor|udp.oftg|eth0 (0.0.0.0) Opening capture interface
+2017-03-05 16:52:38,700 oftg            INFO     Packet Monitor|udp.oftg|eth0 (0.0.0.0) Opening capture interface
+2017-03-05 16:52:38,741 oftg            INFO     Packet Monitor|udp.oftg|eth0 (0.0.0.0) Listening on eth0
+2017-03-05 16:52:38,741 oftg            INFO     Packet Monitor|udp.oftg|eth0 (0.0.0.0) Listening on eth0
+2017-03-05 16:52:39,720 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:39,720 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:39,721 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:39,721 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:39,723 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:39,723 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:39,724 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:39,724 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:39,725 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:39,725 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:39,726 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:39,726 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:39,727 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:39,727 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:39,728 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:39,728 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:40,220 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:40,220 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:40,221 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:40,221 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:40,224 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) Skipping IPv6 packet (not supported for this plugin)
+2017-03-05 16:52:40,224 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) Skipping IPv6 packet (not supported for this plugin)
+2017-03-05 16:52:40,226 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:40,226 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:40,227 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:40,227 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:40,229 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) Skipping IPv6 packet (not supported for this plugin)
+2017-03-05 16:52:40,229 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) Skipping IPv6 packet (not supported for this plugin)
+2017-03-05 16:52:40,231 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:40,231 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:40,232 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:40,232 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:40,234 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:40,234 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:40,235 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:40,235 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:40,245 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:40,245 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:40,245 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:40,245 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:40,250 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:40,250 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:40,251 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:40,251 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:40,251 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:40,251 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:40,252 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:40,252 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:40,253 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:40,253 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:40,254 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:40,254 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:41,582 oftg            INFO     Packet Monitor|dns.oftg|eth0 (0.0.0.0) Opening capture interface
+2017-03-05 16:52:41,582 oftg            INFO     Packet Monitor|dns.oftg|eth0 (0.0.0.0) Opening capture interface
+2017-03-05 16:52:41,616 oftg            INFO     Packet Monitor|dns.oftg|eth0 (0.0.0.0) Listening on eth0
+2017-03-05 16:52:41,616 oftg            INFO     Packet Monitor|dns.oftg|eth0 (0.0.0.0) Listening on eth0
+2017-03-05 16:52:41,720 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:41,720 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:41,720 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:41,720 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:41,721 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:41,721 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:41,721 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:41,721 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:42,097 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:42,097 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:42,099 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:42,099 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:42,102 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:42,102 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:42,104 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:42,104 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:42,105 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:42,105 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:42,107 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:42,107 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:42,108 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:42,108 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:42,109 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:42,109 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:42,109 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:42,109 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:42,110 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:42,110 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:42,110 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:42,110 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:42,111 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:42,111 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:42,112 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:42,112 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:42,113 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:42,113 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:42,115 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:42,115 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:42,117 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:42,117 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:42,119 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:42,119 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:42,129 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:42,129 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:42,130 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:42,130 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:42,133 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:42,133 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:42,135 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:42,135 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:42,138 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:42,138 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:42,141 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:42,141 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:42,142 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:42,142 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:42,220 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:42,220 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:42,221 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:42,221 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:42,221 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:42,221 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:42,221 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:42,221 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:42,222 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:42,222 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:42,222 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:42,222 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:42,223 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:42,223 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:42,223 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:42,223 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:42,224 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:42,224 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:42,225 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:42,225 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:42,226 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:42,226 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:42,226 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:42,226 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:42,227 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:42,227 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:42,227 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:42,227 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:42,228 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:42,228 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:42,229 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:42,229 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:42,233 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:42,233 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:42,247 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:42,247 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:42,249 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:42,249 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:42,250 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:42,250 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:42,602 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:42,602 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:42,604 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:42,604 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:42,605 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:42,605 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:42,606 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:42,606 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:42,607 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:42,607 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:42,607 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:42,607 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:42,608 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:42,608 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:42,608 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:42,608 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:42,610 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:42,610 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:42,610 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:42,610 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:42,611 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:42,611 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:42,611 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:42,611 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:42,613 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:42,613 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:42,615 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:42,615 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:42,616 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:42,616 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:42,616 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:42,616 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:42,622 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:42,622 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:42,625 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:42,625 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:42,626 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:42,626 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:42,626 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:42,626 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:42,627 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:42,627 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:42,628 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:42,628 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:42,633 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:42,633 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:42,633 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:42,633 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:43,096 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:43,096 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:43,097 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:43,097 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:43,098 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:43,098 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:43,099 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:43,099 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:43,099 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) Skipping IPv6 packet (not supported for this plugin)
+2017-03-05 16:52:43,099 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) Skipping IPv6 packet (not supported for this plugin)
+2017-03-05 16:52:43,100 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:43,100 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:43,100 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:43,100 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:43,101 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:43,101 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:43,102 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:43,102 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:43,102 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) Skipping IPv6 packet (not supported for this plugin)
+2017-03-05 16:52:43,102 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) Skipping IPv6 packet (not supported for this plugin)
+2017-03-05 16:52:43,219 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:43,219 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:43,220 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:43,220 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:43,221 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) Skipping IPv6 packet (not supported for this plugin)
+2017-03-05 16:52:43,221 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) Skipping IPv6 packet (not supported for this plugin)
+2017-03-05 16:52:43,221 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:43,221 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:43,222 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:43,222 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:43,222 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) Skipping IPv6 packet (not supported for this plugin)
+2017-03-05 16:52:43,222 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) Skipping IPv6 packet (not supported for this plugin)
+2017-03-05 16:52:43,597 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:43,597 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:43,598 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:43,598 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:43,598 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:43,598 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:43,599 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:43,599 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:43,600 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:43,600 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:43,601 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:43,601 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:43,602 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:43,602 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:43,603 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:43,603 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:43,720 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:43,720 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:43,720 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:43,720 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:43,721 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:43,721 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:43,722 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:43,722 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:44,560 oftg            INFO     Packet Monitor|twitterpastebin.oftg|eth0 (0.0.0.0) Opening capture interface
+2017-03-05 16:52:44,560 oftg            INFO     Packet Monitor|twitterpastebin.oftg|eth0 (0.0.0.0) Opening capture interface
+2017-03-05 16:52:44,600 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:44,600 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:44,604 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:44,604 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:44,605 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:44,605 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:44,605 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:44,605 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:44,606 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:44,606 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:44,606 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:44,606 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:44,607 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:44,607 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:44,607 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:44,607 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:44,620 oftg            INFO     Packet Monitor|twitterpastebin.oftg|eth0 (0.0.0.0) Listening on eth0
+2017-03-05 16:52:44,620 oftg            INFO     Packet Monitor|twitterpastebin.oftg|eth0 (0.0.0.0) Listening on eth0
+2017-03-05 16:52:44,720 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:44,720 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:44,720 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:44,720 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:44,721 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:44,721 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:44,721 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:44,721 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:45,597 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:45,597 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:45,611 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:45,611 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:45,613 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:45,613 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:45,614 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:45,614 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:45,622 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:45,622 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:45,630 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:45,630 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:45,631 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:45,631 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:45,632 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:45,632 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:45,720 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:45,720 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:45,721 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:45,721 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:45,722 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:45,722 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:45,722 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:45,722 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:46,100 oftg            DEBUG    Packet Monitor|twitterpastebin.oftg|eth0 (0.0.0.0) Skipping IPv6 packet (not supported for this plugin)
+2017-03-05 16:52:46,100 oftg            DEBUG    Packet Monitor|twitterpastebin.oftg|eth0 (0.0.0.0) Skipping IPv6 packet (not supported for this plugin)
+2017-03-05 16:52:46,100 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:46,100 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:46,101 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:46,101 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:46,101 oftg            DEBUG    Packet Monitor|twitterpastebin.oftg|eth0 (0.0.0.0) Skipping IPv6 packet (not supported for this plugin)
+2017-03-05 16:52:46,101 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:46,101 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:46,101 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:46,101 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:46,101 oftg            DEBUG    Packet Monitor|twitterpastebin.oftg|eth0 (0.0.0.0) Skipping IPv6 packet (not supported for this plugin)
+2017-03-05 16:52:46,101 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) Skipping IPv6 packet (not supported for this plugin)
+2017-03-05 16:52:46,101 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) Skipping IPv6 packet (not supported for this plugin)
+2017-03-05 16:52:46,102 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:46,102 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:46,102 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:46,102 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:46,102 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:46,102 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:46,102 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:46,102 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:46,102 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) Skipping IPv6 packet (not supported for this plugin)
+2017-03-05 16:52:46,102 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) Skipping IPv6 packet (not supported for this plugin)
+2017-03-05 16:52:46,220 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:46,220 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:46,220 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:46,220 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:46,221 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) Skipping IPv6 packet (not supported for this plugin)
+2017-03-05 16:52:46,221 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) Skipping IPv6 packet (not supported for this plugin)
+2017-03-05 16:52:46,221 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:46,221 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:46,221 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:46,221 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:46,222 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) Skipping IPv6 packet (not supported for this plugin)
+2017-03-05 16:52:46,222 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) Skipping IPv6 packet (not supported for this plugin)
+2017-03-05 16:52:46,222 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:46,222 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:46,224 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:46,224 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:46,225 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:46,225 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:46,226 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:46,226 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:46,601 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:46,601 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:46,602 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:46,602 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:46,602 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:46,602 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:46,602 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:46,602 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:46,604 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:46,604 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:46,605 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:46,605 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:46,606 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:46,606 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:46,607 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:46,607 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:47,220 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:47,220 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:47,221 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:47,221 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:47,222 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:47,222 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:47,223 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:47,223 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:47,226 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:47,226 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:47,227 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:47,227 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:47,230 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:47,230 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:47,232 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:47,232 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:47,241 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:47,241 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:47,249 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:47,249 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:47,252 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:47,252 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:47,253 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:47,253 oftg            DEBUG    Packet Monitor|udp.oftg|eth0 (0.0.0.0) api load prop portrandomize
+2017-03-05 16:52:47,600 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:47,600 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:47,601 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:47,601 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:47,601 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:47,601 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:47,601 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:47,601 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:47,602 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:47,602 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:47,602 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:47,602 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:47,603 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:47,603 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:47,603 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:47,603 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:47,605 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:47,605 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:47,606 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:47,606 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:47,607 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:47,607 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:47,607 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:47,607 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:47,608 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:47,608 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:47,609 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:47,609 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:47,609 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:47,609 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:47,610 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:47,610 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:47,611 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:47,611 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:47,618 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:47,618 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:47,618 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:47,618 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:47,619 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:47,619 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:47,626 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:47,626 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:47,628 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:47,628 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:47,628 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:47,628 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:47,629 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:47,629 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:48,601 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:48,601 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:48,601 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:48,601 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:48,601 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:48,601 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:48,601 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:48,601 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:48,602 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:48,602 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:48,602 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:48,602 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:48,602 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:48,602 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:48,602 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:48,602 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:48,603 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:48,603 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:48,604 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:48,604 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:48,604 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:48,604 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:48,604 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:48,604 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:48,605 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:48,605 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:48,605 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:48,605 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:48,606 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:48,606 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:48,606 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:48,606 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:48,607 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:48,607 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:48,607 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:48,607 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:48,607 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:48,607 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:48,607 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:48,607 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:48,608 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:48,608 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:48,608 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:48,608 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:48,609 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:48,609 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:48,609 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:48,609 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:49,101 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:49,101 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:49,102 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:49,101 oftg            DEBUG    Packet Monitor|twitterpastebin.oftg|eth0 (0.0.0.0) Skipping IPv6 packet (not supported for this plugin)
+2017-03-05 16:52:49,102 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:49,101 oftg            DEBUG    Packet Monitor|twitterpastebin.oftg|eth0 (0.0.0.0) Skipping IPv6 packet (not supported for this plugin)
+2017-03-05 16:52:49,102 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:49,102 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:49,102 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:49,102 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:49,103 oftg            DEBUG    Packet Monitor|twitterpastebin.oftg|eth0 (0.0.0.0) Skipping IPv6 packet (not supported for this plugin)
+2017-03-05 16:52:49,103 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) Skipping IPv6 packet (not supported for this plugin)
+2017-03-05 16:52:49,103 oftg            DEBUG    Packet Monitor|twitterpastebin.oftg|eth0 (0.0.0.0) Skipping IPv6 packet (not supported for this plugin)
+2017-03-05 16:52:49,103 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) Skipping IPv6 packet (not supported for this plugin)
+2017-03-05 16:52:49,104 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:49,104 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop resolvers
+2017-03-05 16:52:49,105 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:49,105 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop domain
+2017-03-05 16:52:49,106 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:49,106 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop subdomain
+2017-03-05 16:52:49,106 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:49,106 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) api load prop portspec
+2017-03-05 16:52:49,108 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) Skipping IPv6 packet (not supported for this plugin)
+2017-03-05 16:52:49,108 oftg            DEBUG    Packet Monitor|dns.oftg|eth0 (0.0.0.0) Skipping IPv6 packet (not supported for this plugin)

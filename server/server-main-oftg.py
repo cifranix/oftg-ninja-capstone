@@ -442,14 +442,7 @@ def bucket_empty_():
 @app.route('/')
 @auth_required
 def index():
-    return redirect('/dashboard', code=302)
-
-@app.route('/dashboard')
-@auth_required
-def dashboard():
-    bucket_sorted()
-
-    return render_template('dashboard.html', tasks=tasks(), bucket=bucket_sorted())
+    return redirect('/server', code=302)
 
 
 @app.route('/bucket/report')
@@ -491,7 +484,7 @@ def server():
         pass
 
     return render_template('server.html', cases=caselibrary.cases, interfaces=interfaces(),
-                           defaultinterface=defaultinterface, tasks=tasks())
+                           defaultinterface=defaultinterface, tasks=tasks(), bucket=bucket_sorted())
 
 
 @app.route('/server/start', methods=['GET', 'POST'])
@@ -501,14 +494,15 @@ def server_start():
     global parent_pipe
 
     # Validate parameters
+
     if not request.form['case']:
-        return redirect('/dashboard?error=%s' % 'You must select a valid case file.', code=302)
+        return redirect('/server?error=%s' % 'You must select a valid case file.', code=302)
 
     if not request.form['case'] in caselibrary.cases:
-        return redirect('/dashboard?error=%s' % 'You must select a valid case file.', code=302)
+        return redirect('/server?error=%s' % 'You must select a valid case file.', code=302)
 
     if not request.form['interface']:
-        return redirect('/dashboard?error=%s' % 'You must select a valid interface.', code=302)
+        return redirect('/server?error=%s' % 'You must select a valid interface.', code=302)
 
     casename = request.form['case']
     case = caselibrary.cases[casename]
@@ -547,10 +541,12 @@ def server_start():
         raise
 
 
-    ######## commented out to be able to listen for multiple cases at the same time
+    ######## commented out to allow server to listen for multiple processes at a time
     # for task in multiprocessing.active_children():
     #     if task.name.startswith('Packet Monitor'):
-    #         return redirect('/dashboard?error=%s' % 'A packet monitor process is already running.', code=302)
+    #         return redirect('/server?error=%s' % 'A packet monitor process is already running.', code=302)
+
+
 
     # Start packet capture process and load filter plugins
     try:
@@ -565,7 +561,8 @@ def server_start():
 
         if not interfacename:
             logger.error('Failed to open packet monitor interface')
-            return redirect('/dashboard', code=302)
+            return redirect('/server', code=302)
+
 
         parent_pipe, child_pipe = multiprocessing.Pipe()
 
@@ -748,7 +745,7 @@ def bucket_empty():
     # Emtpy the bucket
     bucket_empty_()
 
-    return redirect('/dashboard', code=302)
+    return redirect('/server', code=302)
 
 
 @socketio.on('connect', namespace='/websocket')
