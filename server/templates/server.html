@@ -102,6 +102,84 @@
             <!-- /widget -->
         </div>
         <!-- /span12 -->
+        <div class="container">
+            <div class="widget widget-table action-table">
+                <div class="widget-header"><i class="icon-th-list"></i>
+
+                    <h3>Bucket</h3><span style="float: right; margin-top: -2px"><form
+                            style="display: inline; margin: 0px 15px 0px 0px; padding: 0px;" action="/bucket/archive">
+                        <input type="submit" onclick='' class="btn btn-info" value="Move to Archive"/></form><form
+                            style="display: inline; margin: 0px 15px 0px 0px; padding: 0px;" action="/bucket/empty">
+                        <input type="submit" onclick='' class="btn btn-info" value="Empty"/></form></span>
+                </div>
+                <!-- /widget-header -->
+                <div class="widget-content">
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                        <tr>
+                            <th> Plugin</th>
+                            <th> Source</th>
+                            <th> Timestamp</th>
+                            <th> Detail</th>
+                            <th> Flags</th>
+                            <th> ID</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for item in bucket %}
+                        <tr>
+                            <td> <strong>{{ item['Plugin Name'] }}</strong></td>
+                            <td> {{ item['Source Host'] }}</td>
+                            <td style="white-space: nowrap;"> {{ item['Timestamp'] }}</td>
+                            <td> {{ item['Protocol Subtype'] }}(s): {{ item['Subtype List'] }}</td>
+                            <td> {% if item['Encrypted'] %}ENCR{% elif item['Compressed'] %}COMP{% else %}None{% endif
+                                %}
+                            </td>
+                            <td> {{ item['Exfil ID'] }}</td>
+                            <!--<td class="td-actions" style="vertical-align: middle;">
+                            {% if item['Preview'] %}
+                            <form action="/bucket/payload/{{ None }}"><input type="submit" onclick='' class="btn" value="Download"/></form>
+                            {% else %}
+                            None
+                            {% endif %}
+                            </td>-->
+                        </tr>
+                        <tr>
+                            <td colspan="6">
+                                <pre>
+<span style="color: {% if item['Complete'] %}green{% else %}red{% endif %};">Received: {{ item['Payload Size'] }}</span>
+{{ item['Preview'] }}
+                                </pre>
+                            </td>
+                        </tr>
+                        {% else %}
+                        <tr>
+                            <td colspan="6" style="text-align: center;"> No bucket items</td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+
+                    <div id="log"></div>
+                    <script>
+                $(document).ready(function(){
+                    //var sockett = io.connect('ws://127.0.0.1:8080/bucket');
+                    //sockett.send('Helloworld')
+                    //var socket = io.connect('ws://127.0.0.1:8080/status');
+                    //socket.on('taskupdate', function(msg) {
+                    //    $('#log').append('<p>Received: ' + msg.data + '</p>');
+                    //});
+                });
+
+                    </script>
+                </div>
+                <!-- /widget-content -->
+            </div>
+            <!-- /widget -->
+        </div>
+        <!-- /span12 -->
+    </div>
+    <!-- /container -->
   </div>
   <!-- /main-inner -->
 </div>
