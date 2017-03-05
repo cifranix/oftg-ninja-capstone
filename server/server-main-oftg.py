@@ -26,6 +26,7 @@ import hexdump
 import datetime
 import base64
 import json
+import csv
 
 from flask import Flask
 from flask import render_template
@@ -425,6 +426,14 @@ def bucket_sorted():
             except Exception as e:
                 raise
     print(result)
+    #toCSV = [{'name':'bob','age':25,'weight':200},
+    #     {'name':'jim','age':31,'weight':180}]
+    keys = result[0].keys()
+    with open('bucket.csv', 'wb') as output_file:
+        dict_writer = csv.DictWriter(output_file, keys)
+        dict_writer.writeheader()
+        dict_writer.writerows(result)
+
     return result
 
 
