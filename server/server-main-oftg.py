@@ -66,6 +66,8 @@ global bucket
 bucket = []
 global bucket_connection
 bucket_connection = None
+global result
+result = []
 
 auth_deny = {}
 
@@ -428,11 +430,11 @@ def bucket_sorted():
     print(result)
     #toCSV = [{'name':'bob','age':25,'weight':200},
     #     {'name':'jim','age':31,'weight':180}]
-    keys = result[0].keys()
-    with open('bucket.csv', 'wb') as output_file:
-        dict_writer = csv.DictWriter(output_file, keys)
-        dict_writer.writeheader()
-        dict_writer.writerows(result)
+    #keys = result[0].keys()
+    #with open('bucket.csv', 'wb') as output_file:
+    #    dict_writer = csv.DictWriter(output_file, keys)
+    #    dict_writer.writeheader()
+    #    dict_writer.writerows(result)
 
     return result
 
@@ -699,6 +701,18 @@ def bucket_payload(uuid):
             payload = item['Payload']
 
     return jsonify(payload=payload)
+
+@app.route('/bucket/csv')
+@auth_required
+def exportTo_CSV():
+    global result
+    keys = result[0].keys()
+    with open('bucket.csv', 'wb') as output_file:
+        dict_writer = csv.DictWriter(output_file, keys)
+        dict_writer.writeheader()
+        dict_writer.writerows(result)
+
+    return redirect('/server', code=302)    
 
 
 @app.route('/bucket/archive')
