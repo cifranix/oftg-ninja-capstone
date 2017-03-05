@@ -1,0 +1,19 @@
+Exfil ID,Source Host,Protocol Subtype,Subtype List,Preview,Plugin Name,Complete,Encrypted,Payload Size,Compressed,Timestamp
+4d1bc507,10.0.0.35,Port,22,"00000000: 74 65 73 74 20 74 65 78  74 20 68 61 72 64 63 6F  test text hardco
+00000010: 64 65 64 20 70 61 79 6C  6F 61 64 74 65 73 74 20  ded payloadtest 
+00000020: 74 65 78 74 20 68 61 72  64 63 6F 64 65 64 20 70  text hardcoded p
+00000030: 61 79 6C 6F 61 64                                 ayload",UDP Data,False,0,54 Bytes,0,2017-03-05 18:09:32
+8fc1bbd6,10.0.0.35,Port,22,00000000: 74 65 73 74 20 33 0A 74  65 73 74 20 33 0A        test 3.test 3.,UDP Data,False,0,14 Bytes,0,2017-03-05 18:09:32
+9ab998fc,10.0.0.35,Port,22,00000000: 74 65 73 74 20 32 0A 74  65 73 74 20 32 0A        test 2.test 2.,UDP Data,False,0,14 Bytes,0,2017-03-05 18:09:32
+c167e454,10.0.0.35,Port,22,"00000000: 74 65 73 74 20 74 65 78  74 20 68 61 72 64 63 6F  test text hardco
+00000010: 64 65 64 20 70 61 79 6C  6F 61 64 74 65 73 74 20  ded payloadtest 
+00000020: 74 65 78 74 20 68 61 72  64 63 6F 64 65 64 20 70  text hardcoded p
+00000030: 61 79 6C 6F 61 64                                 ayload",UDP Data,False,0,54 Bytes,0,2017-03-05 18:09:32
+d63c2bac,10.0.0.35,Port,22,"00000000: 74 65 73 74 20 74 65 78  74 20 68 61 72 64 63 6F  test text hardco
+00000010: 64 65 64 20 70 61 79 6C  6F 61 64 74 65 73 74 20  ded payloadtest 
+00000020: 74 65 78 74 20 68 61 72  64 63 6F 64 65 64 20 70  text hardcoded p
+00000030: 61 79 6C 6F 61 64                                 ayload",UDP Data,False,0,54 Bytes,0,2017-03-05 18:09:32
+edaf61cb,10.0.0.35,Port,22,"00000000: 74 65 73 74 20 74 65 78  74 20 68 61 72 64 63 6F  test text hardco
+00000010: 64 65 64 20 70 61 79 6C  6F 61 64 74 65 73 74 20  ded payloadtest 
+00000020: 74 65 78 74 20 68 61 72  64 63 6F 64 65 64 20 70  text hardcoded p
+00000030: 61 79 6C 6F 61 64                                 ayload",UDP Data,False,0,54 Bytes,0,2017-03-05 18:09:33

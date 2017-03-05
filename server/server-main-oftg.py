@@ -66,6 +66,8 @@ global bucket
 bucket = []
 global bucket_connection
 bucket_connection = None
+
+#### to test export to csv functionality
 global result
 result = []
 
@@ -412,7 +414,12 @@ def bucket_sorted():
                    'GROUP_CONCAT("Subtype", ", ") AS "Subtype" FROM bucket '
                    'GROUP BY "Plugin Name", "Exfil ID", "Source Host"')
     rows = cursor.fetchall()
+    
+
+    global result
     result = []
+
+
     for row in rows:
         if not row['Plugin Name'] == None:
 
@@ -428,14 +435,8 @@ def bucket_sorted():
             except Exception as e:
                 raise
     print(result)
-    #toCSV = [{'name':'bob','age':25,'weight':200},
-    #     {'name':'jim','age':31,'weight':180}]
-    #keys = result[0].keys()
-    #with open('bucket.csv', 'wb') as output_file:
-    #    dict_writer = csv.DictWriter(output_file, keys)
-    #    dict_writer.writeheader()
-    #    dict_writer.writerows(result)
 
+   
     return result
 
 
@@ -445,6 +446,15 @@ def bucket_empty_():
     cursor = bucket_connection.cursor()
     cursor.execute(sql)
     bucket_connection.commit()
+
+def export_to_csv(result):
+
+    keys = result[0].keys()
+    with open('bucket.csv', 'wb') as output_file:
+        dict_writer = csv.DictWriter(output_file, keys)
+        dict_writer.writeheader()
+        dict_writer.writerows(result)
+
 
 
 
@@ -623,7 +633,6 @@ def stop(pid):
     return redirect('/server', code=302)
 
 @app.route('/bucket', methods=['POST'])
-
 #@auth_required
 def bucket_recieve():
     global bucket_connection
@@ -705,59 +714,20 @@ def bucket_payload(uuid):
 @app.route('/bucket/csv')
 @auth_required
 def exportTo_CSV():
-    global result
-    keys = result[0].keys()
-    with open('bucket.csv', 'wb') as output_file:
-        dict_writer = csv.DictWriter(output_file, keys)
-        dict_writer.writeheader()
-        dict_writer.writerows(result)
-
-    return redirect('/server', code=302)    
-
-
-@app.route('/bucket/archive')
-@auth_required
-def bucket_archive():
     global bucket
+    global result 
 
     try:
+        if not result:
+            export_to_csv(result)
+            print 'The bucket was successfully exported.'
 
-        # Compile remote CSS files into a string to be embedded in the HTML document
-        csscontent = ''
-        cssfiles = ['static/css/bootstrap.min.css',
-                    'static/css/bootstrap-responsive.min.css',
-                    'static/css/style.css',
-                    'static/css/pages/dashboard.css']
-        for fn in cssfiles:
-            with open(fn) as f:
-                csscontent = csscontent + '/* %s */\n\n' % fn + f.read() + '\n'
+            #### experimenting with flash messages
+            # flash('The bucket was successfully exported.')
+    except:
+        return redirect('/server?error=%s' % 'The bucket must be populated to export.', code=302)
 
-        ds = datetime.datetime.now()
-        datestamp = ds.strftime('%Y-%m-%d %H:%M:%S')
-        filename = 'OFTG-Ninja-Bucket_%s' % ds.strftime('%Y-%m-%d_%H-%M-%S')
-
-        # Render the HTML from the report template
-        rt = render_template('bucketreport.html', tasks=tasks(), bucket=bucket_sorted(), datestamp=datestamp,
-                             csscontent=Markup(csscontent), error=None, mimetype='text/html',
-                             headers={'Content-Disposition': 'attachment;filename=report.html'})
-
-        # Write the bucket report to the local archive directory
-        with open(safefile('archive', '%s.html' % filename), 'w') as hf:
-            hf.write(rt)
-
-        # FIXME: xhtml conversion fails on CSS3 selectors due to lack of pisa support
-        #pdf = create_pdf(rt)
-
-        #with open(os.path.join('archive', '%s.pdf' % filename), 'w') as pf:
-        #    pf.write(pdf)
-
-        # Emtpy the bucket
-        bucket_empty()
-
-    except Exception as e:
-        raise e
-
-    return redirect('/archive', code=302)
+    return redirect('/server', code=302)  
 
 
 @app.route('/bucket/empty')
