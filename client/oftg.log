@@ -1,15 +1,1 @@
-2017-03-05 16:43:32,690 client          INFO     Client|udp.oftg|10.0.0.35 Executing OFTGUDP
-2017-03-05 16:43:32,692 client          DEBUG    Client|udp.oftg|10.0.0.35 UDPRaw Port 22
-2017-03-05 16:43:32,693 client          DEBUG    Client|udp.oftg|10.0.0.35 UDPRaw Port 22
-2017-03-05 16:43:32,694 client          DEBUG    Client|udp.oftg|10.0.0.35 UDPRaw Port 22
-2017-03-05 16:43:32,694 client          INFO     Client|udp.oftg|10.0.0.35 Finished OFTGUDP
-2017-03-05 16:43:32,695 client          INFO     Client|udp.oftg|10.0.0.35 Executing file
-2017-03-05 16:43:32,695 client          ERROR    Client|udp.oftg|10.0.0.35 Property error in file: u'test.txt'
-2017-03-05 16:43:32,695 client          DEBUG    Client|udp.oftg|10.0.0.35 UDPRaw Port 22
-2017-03-05 16:43:32,696 client          ERROR    Client|udp.oftg|10.0.0.35 Property error in file: u'test.txt'
-2017-03-05 16:43:32,698 client          DEBUG    Client|udp.oftg|10.0.0.35 UDPRaw Port 22
-2017-03-05 16:43:32,699 client          ERROR    Client|udp.oftg|10.0.0.35 Property error in file: u'test.txt'
-2017-03-05 16:43:32,706 client          DEBUG    Client|udp.oftg|10.0.0.35 UDPRaw Port 22
-2017-03-05 16:43:32,707 client          INFO     Client|udp.oftg|10.0.0.35 Finished file
-ort 22
-2017-03-05 16:43:32,707 client          INFO     Client|udp.oftg|10.0.0.35 Finished file
+2017-03-25 11:19:07,805 werkzeug        INFO     MainProcess  * Running on http://0.0.0.0:7332/

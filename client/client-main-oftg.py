@@ -495,13 +495,20 @@ def cases_edit():
         else:
             global caselibrary
             return render_template('cases.html?error=Case name required.', cases=caselibrary.cases)
-    #TODO: make sure all variables are properly saved to the caselibrary object. Also, let's just update the casefile object rather than dealing with this tempfile. We can just save caselibrary['casename'] at the end rather than keeping both.
+    #TODO: make sure all variables are properly     d to the caselibrary object. Also, let's just update the casefile object rather than dealing with this tempfile. We can just save caselibrary['casename'] at the end rather than keeping both.
     if 'edit' in request.form:
+        
+        ## Ninja -Creating a temporary JSON object, which will later be popolated based on form input and then be written back to cases folder. 
+        ## Ninja -Holds the configuration values entered by the user for new case option.
         tempcase = {}
         files = {}
+
+        ## Ninja -Creating key/value pairs in the tempcase JSON object, with key name and empty JSON Object as value. Ex: - 
+        ## Ninja -tempcase = {'payloads': {}, 'plugins':{}, 'configurations': {} }
         tempcase['payloads'] = {}
         tempcase['plugins'] = {}
         tempcase['configuration'] = {}
+
         for key in request.form:
             if "|" in key:
                 k,v = key.split('|', 1)
@@ -515,6 +522,9 @@ def cases_edit():
                     if plugin not in tempcase['plugins']:
                         tempcase['plugins'][plugin] = {}
                     tempcase['plugins'][plugin][property] = request.form[key]
+        
+        ## Ninja - The payload files provided by the user are uploaded, the message digest (SHA256 - hash) is calculated and then it is base64 encoded
+        ## Ninja - After that it is set to the value of 'payloads' key in tempcase JSON object
 
         #I think this is how IE will upload the files.
         if 'file' in request.files:
@@ -543,6 +553,9 @@ def cases_edit():
                     s.update(payload)
                     tempcase['payloads'][upload.filename]['data'] = base64.b64encode(payload)
                     tempcase['payloads'][upload.filename]['hash'] = s.hexdigest()[:8]
+
+        ## Ninja -This must be written by the original author for testing, we can delete this later.
+
         ############3#test, delete this:
         #payload = 'test text hardcoded payload'
         #from hashlib import sha256
@@ -552,6 +565,9 @@ def cases_edit():
         #tempcase['payloads']['test.txt']['data'] = base64.b64encode(payload)
         #tempcase['payloads']['test.txt']['hash'] = s.hexdigest()[:8]
         ##############################
+
+        ## Ninja -Checking for the configurations and checking which plugins are enabled, need to dig deep
+
         if 'configuration' in tempcase:
             if 'enable' in tempcase['configuration']:
                 del tempcase['configuration']['enable']
@@ -564,6 +580,11 @@ def cases_edit():
                     print plugin, 'Enabled, cleaning'
                     del tempcase['plugins'][plugin]['enable']
         print 'tempcase 2: '+str(tempcase)
+
+        ## Ninja -Once all the configurations values and other key/value pairs on tempcase JSON object have been populated, 
+        ## Ninja - Open/create a case configuration file in the cases folder with the casename entered in the front-end and then save/write it in the JSON format
+        ## NInja - finally it updates the caselibrary cases value with the the casename entered and initializes it to the tempcase object
+         
         f = open(safefile('cases', casename), 'w')
         f.write(json.dumps(tempcase))
         f.close()
