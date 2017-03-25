@@ -495,7 +495,9 @@ def cases_edit():
         else:
             global caselibrary
             return render_template('cases.html?error=Case name required.', cases=caselibrary.cases)
-    print "\n\n...498...casename == " + cprint "\n\ngot if edit\n\n"asename + "\n\n"
+    print "\n\n...498...casename == " + casename 
+
+    print "\n\ngot if edit\n\n" + casename + "\n\n"
     #TODO: make sure all variables are properly     d to the caselibrary object. Also, let's just update the casefile object rather than dealing with this tempfile. We can just save caselibrary['casename'] at the end rather than keeping both.
     print "\n\n...500...request.form == " + str(request.form) + "\n\n"
     if 'edit' in request.form:
