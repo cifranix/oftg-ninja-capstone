@@ -485,7 +485,7 @@ def client():
 @app.route('/cases/edit', methods=['GET', 'POST'])
 @auth_required
 def cases_edit():
-
+    print "\n\n...488...editing case\n\n"
     global caselibrary
     if 'casename'in request.form:
         casename = request.form['casename']
@@ -495,14 +495,16 @@ def cases_edit():
         else:
             global caselibrary
             return render_template('cases.html?error=Case name required.', cases=caselibrary.cases)
+    print "\n\n...498...casename == " + cprint "\n\ngot if edit\n\n"asename + "\n\n"
     #TODO: make sure all variables are properly     d to the caselibrary object. Also, let's just update the casefile object rather than dealing with this tempfile. We can just save caselibrary['casename'] at the end rather than keeping both.
+    print "\n\n...500...request.form == " + str(request.form) + "\n\n"
     if 'edit' in request.form:
         
         ## Ninja -Creating a temporary JSON object, which will later be popolated based on form input and then be written back to cases folder. 
         ## Ninja -Holds the configuration values entered by the user for new case option.
         tempcase = {}
         files = {}
-
+        print "\n\ngot if edit\n\n"
         ## Ninja -Creating key/value pairs in the tempcase JSON object, with key name and empty JSON Object as value. Ex: - 
         ## Ninja -tempcase = {'payloads': {}, 'plugins':{}, 'configurations': {} }
         tempcase['payloads'] = {}
@@ -510,8 +512,12 @@ def cases_edit():
         tempcase['configuration'] = {}
 
         for key in request.form:
+            print "\n\n...514...key == " + str(key) + "\n\n"
+            print "\n\n...514... for key in request.form"
             if "|" in key:
                 k,v = key.split('|', 1)
+                print "\n\n518...k==" + k + "\n\n"
+                print "\n\n518...v==" + v + "\n\n"
                 if k == 'configuration':
                     if not 'configuration' in caselibrary.cases[casename]:
                         caselibrary.cases[casename]['configuration'] = {}
