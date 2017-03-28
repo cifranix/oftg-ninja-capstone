@@ -527,9 +527,15 @@ def cases_edit():
                         caselibrary.cases[casename]['configuration'][v] = {}
                     caselibrary.cases[casename]['configuration'][v] = request.form[key]
                 else:
-                    if plugin not in tempcase['plugins']:
-                        tempcase['plugins'][plugin] = {}
-                    tempcase['plugins'][plugin][property] = request.form[key]
+                    print "hihihi"
+
+                    ## Ninja - the puglin values for the UDP is set, this needs to be extended with further if statements for other plugins
+                    if v == 'enable':
+                        if k == 'OFTGUDP':
+                            tempcase['plugins'] = {k:{"portspec":str(request.form['OFTGUDP|portspec']) , "portrandomize":str(request.form['OFTGUDP|portrandomize'])},"file":{"test.txt": ""}}
+                    # if plugin not in tempcase['plugins']:
+                    #     tempcase['plugins'][plugin] = {}
+                    # tempcase['plugins'][plugin][property] = request.form[key]
         
         ## Ninja - The payload files provided by the user are uploaded, the message digest (SHA256 - hash) is calculated and then it is base64 encoded
         ## Ninja - After that it is set to the value of 'payloads' key in tempcase JSON object
@@ -588,6 +594,10 @@ def cases_edit():
                     print plugin, 'Enabled, cleaning'
                     del tempcase['plugins'][plugin]['enable']
         print 'tempcase 2: '+str(tempcase)
+
+        ## NInja - Manually added these values
+        ## NInja - this was used for testing by manually setting the plugin value:- tempcase['plugins'] = {"OFTGUDP": {"portspec": "22", "portrandomize": "False"},"file": {"test.txt": ""}}
+        tempcase['configuration'] = {"encryptphrase": "", "encrypt": "False", "compress": "False"}
 
         ## Ninja -Once all the configurations values and other key/value pairs on tempcase JSON object have been populated, 
         ## Ninja - Open/create a case configuration file in the cases folder with the casename entered in the front-end and then save/write it in the JSON format
