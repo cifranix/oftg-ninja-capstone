@@ -500,39 +500,87 @@ def cases_edit():
     print "\n\ngot if edit\n\n" + casename + "\n\n"
     #TODO: make sure all variables are properly     d to the caselibrary object. Also, let's just update the casefile object rather than dealing with this tempfile. We can just save caselibrary['casename'] at the end rather than keeping both.
     print "\n\n...500...request.form == " + str(request.form) + "\n\n"
-    if 'edit' in request.form:
+    
+    
+    if request.form.get('edit') == 'True':
         
         ## Ninja -Creating a temporary JSON object, which will later be popolated based on form input and then be written back to cases folder. 
         ## Ninja -Holds the configuration values entered by the user for new case option.
         tempcase = {}
         files = {}
-        print "\n\ngot if edit\n\n"
+
         ## Ninja -Creating key/value pairs in the tempcase JSON object, with key name and empty JSON Object as value. Ex: - 
         ## Ninja -tempcase = {'payloads': {}, 'plugins':{}, 'configurations': {} }
         tempcase['payloads'] = {}
         tempcase['plugins'] = {}
         tempcase['configuration'] = {}
 
-        for key in request.form:
-            print "\n\n...514...key == " + str(key) + "\n\n"
-            print "\n\n...514... for key in request.form"
-            if "|" in key:
-                k,v = key.split('|', 1)
-                print "\n\n518...k==" + k + "\n\n"
-                print "\n\n518...v==" + v + "\n\n"
-                if k == 'configuration':
-                    if not 'configuration' in caselibrary.cases[casename]:
-                        caselibrary.cases[casename]['configuration'] = {}
-                    if not v in caselibrary.cases[casename]['configuration']:
-                        caselibrary.cases[casename]['configuration'][v] = {}
-                    caselibrary.cases[casename]['configuration'][v] = request.form[key]
-                else:
-                    print "hihihi"
+        ## Ninja - the configuration fields are the same for all cases. See below...
+        tempcase['configuration'] = {"encryptphrase": "", "encrypt": "False", "compress": "False"}
+
+        ## Ninja - Checking for the key value pair that is enabled. Then set the plugin parameters for whichever key value pair is enabled.
+        if request.form.get('OFTGUDP|enable') == 'Enabled':
+            print '\nUDP is enabled...\n'
+            tempcase['plugins'] = {'OFTGUDP':{"portspec":str(request.form['OFTGUDP|portspec']) , "portrandomize":str(request.form['OFTGUDP|portrandomize'])}}
+        elif request.form.get('OFTGICMP|enable') == 'Enabled':
+            print '\nICMP is enabled...\n'
+            tempcase['plugins'] = {'OFTGICMP':{"icmptype":str(request.form['OFTGICMP|icmptype'])}}
+            
+            # tempcase['key'] = {}
+            # tempcase = {"configuration": {"encryptphrase": "", "encrypt": "False", "compress": "False"}, "payloads": {"Lorem Ipsum": "TG9yZW0gaXBzdW0gZG9sb3Igc2l0IGFtZXQsIGNvbnNlY3RldHVyIGFkaXBpc2NpbmcgZWxpdC4="}, "key": "a88eFq", "plugins": {"OFTGICMP": {"icmptype": "8"}}}
+            # tempcase['payloads'] = {"Lorem Ipsum": "TG9yZW0gaXBzdW0gZG9sb3Igc2l0IGFtZXQsIGNvbnNlY3RldHVyIGFkaXBpc2NpbmcgZWxpdC4="}
+
+
+        ## Ninja -  TO DO: ICMP does not work because of server-side errors. We need to check for these errors (possibly IPv6).
+
+
+
+
+
+
+
+    # if 'edit' in request.form:
+        
+    #     ## Ninja -Creating a temporary JSON object, which will later be popolated based on form input and then be written back to cases folder. 
+    #     ## Ninja -Holds the configuration values entered by the user for new case option.
+    #     tempcase = {}
+    #     files = {}
+    #     print "\n\ngot if edit\n\n"
+    #     ## Ninja -Creating key/value pairs in the tempcase JSON object, with key name and empty JSON Object as value. Ex: - 
+    #     ## Ninja -tempcase = {'payloads': {}, 'plugins':{}, 'configurations': {} }
+    #     tempcase['payloads'] = {}
+    #     tempcase['plugins'] = {}
+    #     tempcase['configuration'] = {}
+
+    #     for key in request.form:
+    #         print "\n\n...514...key == " + str(key) + "\n\n"
+    #         print "\n\n...514... for key in request.form"
+    #         if "|" in key:
+    #             k,v = key.split('|', 1)
+    #             print "\n\n518...k==" + k + "\n\n"
+    #             print "\n\n518...v==" + v + "\n\n"
+    #             if k == 'configuration':
+    #                 if not 'configuration' in caselibrary.cases[casename]:
+    #                     caselibrary.cases[casename]['configuration'] = {}
+    #                 if not v in caselibrary.cases[casename]['configuration']:
+    #                     caselibrary.cases[casename]['configuration'][v] = {}
+    #                 print "request.form[key] ====== " + str(request.form[key])
+    #                 caselibrary.cases[casename]['configuration'][v] = request.form[key]
+    #             elif k == 'OFTGUDP':
+    #                 print "Looking for OFTGUDP..."
+    #                 if v == 'enable':
+    #                     tempcase['plugins'] = {k:{"portspec":str(request.form['OFTGUDP|portspec']) , "portrandomize":str(request.form['OFTGUDP|portrandomize'])}}
+    #                     print "OFTGUDP called"
 
                     ## Ninja - the puglin values for the UDP is set, this needs to be extended with further if statements for other plugins
-                    if v == 'enable':
-                        if k == 'OFTGUDP':
-                            tempcase['plugins'] = {k:{"portspec":str(request.form['OFTGUDP|portspec']) , "portrandomize":str(request.form['OFTGUDP|portrandomize'])},"file":{"test.txt": ""}}
+                    # if k == 'OFTGUDP':
+                    #     if v == 'enable':
+                    #         tempcase['plugins'] = {k:{"portspec":str(request.form['OFTGUDP|portspec']) , "portrandomize":str(request.form['OFTGUDP|portrandomize'])}}
+                    # else: 
+                    #     if k == 'OFTGICMP':
+                    #         if v == 'enable':
+                    #             tempcase['plugins'] = {k:{"icmptype":str(request.form['OFTGICMP|icmptype'])}}
+
                     # if plugin not in tempcase['plugins']:
                     #     tempcase['plugins'][plugin] = {}
                     # tempcase['plugins'][plugin][property] = request.form[key]
@@ -593,11 +641,13 @@ def cases_edit():
                 else:
                     print plugin, 'Enabled, cleaning'
                     del tempcase['plugins'][plugin]['enable']
+        
+        
         print 'tempcase 2: '+str(tempcase)
 
         ## NInja - Manually added these values
         ## NInja - this was used for testing by manually setting the plugin value:- tempcase['plugins'] = {"OFTGUDP": {"portspec": "22", "portrandomize": "False"},"file": {"test.txt": ""}}
-        tempcase['configuration'] = {"encryptphrase": "", "encrypt": "False", "compress": "False"}
+       
 
         ## Ninja -Once all the configurations values and other key/value pairs on tempcase JSON object have been populated, 
         ## Ninja - Open/create a case configuration file in the cases folder with the casename entered in the front-end and then save/write it in the JSON format
