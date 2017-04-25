@@ -1,1 +1,1 @@
-{"configuration": {"encryptphrase": "", "encrypt": "False", "compress": "False"}, "payloads": {"test3.txt": {"hash": "f332dc0b", "data": "dGVzdCAzCg=="}, "test2.txt": {"hash": "ef691f74", "data": "dGVzdCAyCg=="}, "test.txt": {"hash": "9d1b5b9b", "data": "dGVzdCB0ZXh0IGhhcmRjb2RlZCBwYXlsb2Fk"}}, "plugins": {"file": {"test.txt": ""}, "OFTGUDP": {"portspec": "22", "portrandomize": "False"}}}
+{"configuration": {"encryptphrase": "", "encrypt": "False", "compress": "False"}, "payloads": {}, "plugins": {}}

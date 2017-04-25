@@ -40,10 +40,14 @@ class Client():
         if not plugins:
             raise Exception('No plugins loaded')
 
+        print self.case['plugins']
+
         for pluginname in self.case['plugins']:
-            logger.info('Executing %s' % pluginname)
+            logger.info('Executing------- %s' % pluginname)
             for payload in self.case['payloads']:
+                print "stage 1"
                 try:
+                    print "stage 2"
                     if pluginname == 'OFTGTCP':
                         p = plugins['OFTGTCP'].OFTGTCP(source=self.source, case=self.case, target=self.target,
                                                        payload=base64.b64decode(self.case['payloads'][payload]['data']),
@@ -60,6 +64,7 @@ class Client():
                         p = plugins['OFTGICMP'].OFTGICMP(source=self.source, case=self.case, target=self.target,
                                                          payload=base64.b64decode(self.case['payloads'][payload]['data']),
                                                          logger=logger)
+                        print "stage 3 ---- ICMP"
                     if pluginname == 'OFTGTwitterPastebin':
                         p = plugins['OFTGTwitterPastebin'].OFTGTwitterPastebin(source=self.source, case=self.case,
                                                                                target=self.target,
@@ -81,7 +86,7 @@ class Client():
                     #    if not p.PROPERTIES[prop]['Value']:
                     #        p.PROPERTIES[prop]['Value'] = p.PROPERTIES[prop]['Default']
                     # Start the plugin
-                    print p
+                    print str(p) + "*******JORDAN********"
                     p.emitter()
 
                 except Exception as e:

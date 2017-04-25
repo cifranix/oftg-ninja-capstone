@@ -1,1 +1,1 @@
-{"configuration": {"encryptphrase": "", "encrypt": "False", "compress": "False"}, "payloads": {"Lorem Ipsum": "TG9yZW0gaXBzdW0gZG9sb3Igc2l0IGFtZXQsIGNvbnNlY3RldHVyIGFkaXBpc2NpbmcgZWxpdC4="}, "key": "a88eFq", "plugins": {"OFTGICMP": {"icmptype": "8"}}}
+{"configuration": {"encryptphrase": "", "encrypt": "False", "compress": "False"}, "payloads": {"ICMPtest.txt": {"hash": "23270130", "data": "SUNNUCBwYXlsb2FkIGJhYnkK"}}, "plugins": {"OFTGICMP": {"icmptype": "0,8"}}}

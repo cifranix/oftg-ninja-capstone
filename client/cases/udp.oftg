@@ -1,1 +1,1 @@
-{"configuration": {"encryptphrase": "", "encrypt": "False", "compress": "False"}, "payloads": {"jordan.txt": {"hash": "d4e10166", "data": "aGVsbG8gaGVsbG8gaGVsbG8="}}, "plugins": {"OFTGUDP": {"portspec": "22", "portrandomize": "False"}}}
+{"configuration": {"encryptphrase": "", "encrypt": "False", "compress": "False"}, "payloads": {"UDPtest.txt": {"hash": "c50983ed", "data": "dGhpcyBpcyB0byB0ZXN0IHRoZSBVRFAK"}}, "plugins": {"OFTGUDP": {"portspec": "22", "portrandomize": "False"}}}

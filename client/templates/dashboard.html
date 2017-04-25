@@ -24,6 +24,7 @@
                         <tbody>
                         {% for task in tasks %}
                         <tr>
+                            <!-- <td> {% print task[0] %} </td> -->
                             <td> {% print task[0].split('|')[0] %} ({% print task[1] %})</td>
                             <td> {% print task[0].split('|')[1] %}</td>
                             <td> {% print task[0].split('|')[2] %}</td>

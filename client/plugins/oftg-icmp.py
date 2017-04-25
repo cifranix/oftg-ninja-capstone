@@ -62,26 +62,34 @@ class OFTGICMP(OFTGPacketPlugin):
         the plugin. Emitter MUST use the encoder() method to assemble payloads
         :return: True if successful
         """
-
+        print "Entering emitter function--------------------"
         try:
+            print "we got in the try-----------"
 
             src = self.getlocaladdr()
+            print str(src) + "<----------- this is the src"
 
-            try:
-                dst = socket.gethostbyname(self.target)
-            except Exception as e:
-                dst = self.target
-                self.logger.error('Failed to resolve target hostname for %s: %s' % (self.__class__.__name__, e))
-                raise e
+            dst = self.target
+            print str(dst) + "<----------- this is the dst"
 
+
+
+            
             # Fetch the icmptype property as a list
+            # icmptypes.append(8)
+            # print icmptypes
             icmptypes = self.listproperty('icmptype')
-            print icmptypes
+            
+            icmptypes = [8]
+
+            # print icmptypes
             if not icmptypes:
                 icmptypes = [8]
 
             # Send the payload to the encoder which returns a generator, then iterate over the chunked and encoded
             # payload
+
+            print "for statement-----------------"
             for payload in self.encoder(self.payload):
                 # Iterate over all of the specified types for this payload and execute the delivery
                 for icmptype in icmptypes:
@@ -104,13 +112,19 @@ class OFTGICMP(OFTGPacketPlugin):
                     icmp.set_icmp_cksum(0)
                     icmp.auto_checksum = 1
 
+                    print "before"
+
                     s.sendto(ip.get_packet(), (self.target, 0))
+                    print "after"  
+
                     seq_id += 1
 
 
         except socket.error:
+            print "\nsocket broke\n"
             raise
         except Exception:
+            print "\nit broke\n"
             raise
 
         return True

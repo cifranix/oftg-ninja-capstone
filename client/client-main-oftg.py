@@ -521,10 +521,19 @@ def cases_edit():
         ## Ninja - Checking for the key value pair that is enabled. Then set the plugin parameters for whichever key value pair is enabled.
         if request.form.get('OFTGUDP|enable') == 'Enabled':
             print '\nUDP is enabled...\n'
+            # k,v = key.split('|', 1)
             tempcase['plugins'] = {'OFTGUDP':{"portspec":str(request.form['OFTGUDP|portspec']) , "portrandomize":str(request.form['OFTGUDP|portrandomize'])}}
         elif request.form.get('OFTGICMP|enable') == 'Enabled':
             print '\nICMP is enabled...\n'
             tempcase['plugins'] = {'OFTGICMP':{"icmptype":str(request.form['OFTGICMP|icmptype'])}}
+
+        # if request.form.get('OFTGUDP|enable') == 'Enabled':
+        #     print '\nUDP is enabled...\n'
+        #     # k,v = key.split('|', 1)
+        #     tempcase['plugins'] = {'OFTGUDP':{"portspec":str(request.form['OFTGUDP|portspec']) , "portrandomize":str(request.form['OFTGUDP|portrandomize'])}}
+        # elif request.form.get('OFTGICMP|enable') == 'Enabled':
+        #     print '\nICMP is enabled...\n'
+        #     tempcase['plugins'] = {'OFTGICMP':{"icmptype":str(request.form['OFTGICMP|icmptype'])}}
             
             # tempcase['key'] = {}
             # tempcase = {"configuration": {"encryptphrase": "", "encrypt": "False", "compress": "False"}, "payloads": {"Lorem Ipsum": "TG9yZW0gaXBzdW0gZG9sb3Igc2l0IGFtZXQsIGNvbnNlY3RldHVyIGFkaXBpc2NpbmcgZWxpdC4="}, "key": "a88eFq", "plugins": {"OFTGICMP": {"icmptype": "8"}}}
@@ -822,6 +831,8 @@ def tasks():
             if c.name == 'Logger':
                 continue
             children.append([c.name, c.pid])
+            print str(c.name)
+            
 
     return children
 

@@ -102,7 +102,12 @@ class OFTGPlugin(object):
         import socket
 
         s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        s.connect(('example.com', 0))
+        print "this is s" + str(s.getsockname())
+
+
+        # where it
+        # s.connect(('example.com', 0))
+        print "after the connect statement"
         return s.getsockname()[0]
 
     def listproperty(self, property):
